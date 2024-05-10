@@ -4,8 +4,8 @@
   "version": "1.0",
   "description": "SSC Hero Chrome extension",
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "ssc-hero-logo.JPG"
+    "default_popup": "popup/popup.html",
+    "default_icon": "images/ssc-hero-logo.JPG"
   },
   "permissions": ["activeTab"],
   "background": {
