@@ -9,9 +9,6 @@ function App() {
     return (
       <div className="App">
           <button type="button" onClick={handleClick}>Click Me</button>
-          Hello World
-          '/
-          '
       </div>
     );
 }

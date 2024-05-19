@@ -4,8 +4,12 @@
 }
 
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 15rem;
   height: 15rem;
   background-color: green;
+
 
 }
