@@ -24,6 +24,7 @@ function getCourseJson(courseString : string) : any {
         })
         .then(data => {
             console.log(data);
+            return data;
         })
         .catch(error => {
             console.error('Error:', error);
@@ -37,8 +38,7 @@ function App() {
             const courseString = getCourseString(currentTab.url);
             console.log(courseString);
             const courseJson : any = getCourseJson(courseString);
-            alert(`Current URL: ${currentTab.url}`);
-
+            alert(`Current URL: ${courseJson.average_past_5_yrs}`);
         });
     };
 
