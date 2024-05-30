@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import './utilities';
 
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/'
 function getCourseString(url : string) : string {
@@ -42,37 +41,13 @@ function DOMtoString(selector: any) {
 }
 function App() {
     const  handleClick = async () => {
-        // window.chrome.tabs.query({ active: true, currentWindow: true }, (tabs: any[]) => {
-        //     const currentTab = tabs[0];
-        //     const courseString = getCourseString(currentTab.url);
-        //     console.log(courseString);
-        //     const courseJson : any = getCourseJson(courseString);
-        //     alert(`Current URL: ${courseJson.average_past_5_yrs}`);
-        // });
-        //
-        // window.chrome.tabs.query({ active: true, currentWindow: true }).then(function (tabs: any[]) {
-        //     var activeTab = tabs[0];
-        //     var activeTabId = activeTab.id;
-        //
-        //     return window.chrome.scripting.executeScript({
-        //         target: { tabId: activeTabId },
-        //         injectImmediately: true,  // uncomment this to make it execute straight away, other wise it will wait for document_idle
-        //         func: DOMtoString,
-        //         args: ['bodyddf']  // you can use this to target what element to get the html for
-        //     });
-        //
-        // }).then(function (results: { result: any; }[]) {
-        //     alert(results[0].result);
-        // }).catch(function (error: { message: string; }) {
-        //     alert(error.message);
-        // }
-
         const [tab] = await window.chrome.tabs.query({active: true, currentWindow: true});
+        console.log(tab.id);
         let result;
         try {
             [{result}] = await window.chrome.scripting.executeScript({
                 target: {tabId: tab.id},
-                func: () => document.documentElement.innerText,
+                func: () => document.documentElement.outerText,
             });
         } catch (e) {
             document.body.textContent = 'Cannot access page';

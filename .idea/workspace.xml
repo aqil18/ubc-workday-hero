@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de611cea-0490-4e05-8afe-5a1829e90d6c" name="Changes" comment="iml changes">
-      <change afterPath="$PROJECT_DIR$/react-chrome-ext/src/utilities.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-chrome-ext/web-scraper/grab-html.py" afterDir="false" />
+    <list default="true" id="de611cea-0490-4e05-8afe-5a1829e90d6c" name="Changes" comment="trying so hard to grab the html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-chrome-ext/dist/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-chrome-ext/dist/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-chrome-ext/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-chrome-ext/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-chrome-ext/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-chrome-ext/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-chrome-ext/src/utilities.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +184,7 @@
       <workItem from="1716103124021" duration="4841000" />
       <workItem from="1716160462273" duration="2539000" />
       <workItem from="1716789487633" duration="1405000" />
-      <workItem from="1717063787646" duration="967000" />
+      <workItem from="1717063787646" duration="1635000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -281,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716790861929</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="trying so hard to grab the html">
+      <option name="closed" value="true" />
+      <created>1717064778418</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717064778418</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +321,7 @@
     <MESSAGE value="COMPLETED NETWORK REQUEST TO UBC GRADES" />
     <MESSAGE value="Working on displaying the avg lst 5 yrs" />
     <MESSAGE value="Broke the code for what" />
-    <option name="LAST_COMMIT_MESSAGE" value="Broke the code for what" />
+    <MESSAGE value="trying so hard to grab the html" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying so hard to grab the html" />
   </component>
 </project>
