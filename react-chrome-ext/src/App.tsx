@@ -47,7 +47,7 @@ function App() {
         try {
             [{result}] = await window.chrome.scripting.executeScript({
                 target: {tabId: tab.id},
-                func: () => document.documentElement.outerText,
+                func: () => document.documentElement.innerText,
             });
         } catch (e) {
             document.body.textContent = 'Cannot access page';
@@ -55,7 +55,9 @@ function App() {
         }
         // process the result
         console.log(result);
-
+        var courseCodes = result.match(/\b[A-Z]{2,4}_V\s*\d{3}\b/g);
+        console.log(courseCodes);
+        alert(courseCodes[0])
     };
 
     return (
