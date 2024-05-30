@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de611cea-0490-4e05-8afe-5a1829e90d6c" name="Changes" comment="Working on displaying the avg lst 5 yrs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-chrome-ext/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-chrome-ext/src/App.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="de611cea-0490-4e05-8afe-5a1829e90d6c" name="Changes" comment="Broke the code for what" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,7 +168,7 @@
       <workItem from="1715898819808" duration="1570000" />
       <workItem from="1716103124021" duration="4841000" />
       <workItem from="1716160462273" duration="2539000" />
-      <workItem from="1716789487633" duration="1349000" />
+      <workItem from="1716789487633" duration="1405000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -261,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716163345542</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Broke the code for what">
+      <option name="closed" value="true" />
+      <created>1716790861929</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716790861929</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +285,7 @@
     <MESSAGE value="got course details." />
     <MESSAGE value="COMPLETED NETWORK REQUEST TO UBC GRADES" />
     <MESSAGE value="Working on displaying the avg lst 5 yrs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on displaying the avg lst 5 yrs" />
+    <MESSAGE value="Broke the code for what" />
+    <option name="LAST_COMMIT_MESSAGE" value="Broke the code for what" />
   </component>
 </project>
