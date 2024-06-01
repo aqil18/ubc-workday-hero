@@ -69,7 +69,7 @@ function App() {
             console.log("Instructor not found");
         }
         console.log(rawString[0]);
-        const courseString = getCourseString(rawString[0]);
+        const courseString = getCourseString(rawString[0])
         console.log(courseString);
         const courseJson = JSON.parse(getCourseJson(courseString));
         alert("Course Average for " + rawString + ": " + courseJson.average);
