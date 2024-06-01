@@ -53,7 +53,21 @@ function App() {
             document.body.textContent = 'Cannot access page';
             return;
         }
+        console.log(result);
         var rawString = result.match(/\b[A-Z]{2,4}_V\s*\d{3}\b/g);
+
+        // Regular expression to find the instructor's name
+        const instructorPattern = /Instructor Teaching\n(.+?)\n/;
+
+        // Find the match in the text
+        const match = result.match(instructorPattern);
+
+        if (match) {
+            const instructorName = match[1].trim();
+            console.log(instructorName);
+        } else {
+            console.log("Instructor not found");
+        }
         console.log(rawString[0]);
         const courseString = getCourseString(rawString[0]);
         console.log(courseString);

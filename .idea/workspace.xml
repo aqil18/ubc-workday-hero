@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de611cea-0490-4e05-8afe-5a1829e90d6c" name="Changes" comment="got course code successfully.">
+    <list default="true" id="de611cea-0490-4e05-8afe-5a1829e90d6c" name="Changes" comment="Got course JSON">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-chrome-ext/dist/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-chrome-ext/dist/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-chrome-ext/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-chrome-ext/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +183,7 @@
       <workItem from="1716160462273" duration="2539000" />
       <workItem from="1716789487633" duration="1405000" />
       <workItem from="1717063787646" duration="4172000" />
-      <workItem from="1717198181588" duration="2242000" />
+      <workItem from="1717198181588" duration="3300000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -304,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717067358103</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Got course JSON">
+      <option name="closed" value="true" />
+      <created>1717200483689</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717200483689</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +347,7 @@
     <MESSAGE value="trying so hard to grab the html" />
     <MESSAGE value="got it working for workday" />
     <MESSAGE value="got course code successfully." />
-    <option name="LAST_COMMIT_MESSAGE" value="got course code successfully." />
+    <MESSAGE value="Got course JSON" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got course JSON" />
   </component>
 </project>
