@@ -2,15 +2,23 @@ import React from 'react';
 import './App.css';
 
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/'
-function getCourseString(url : string) : string {
-    const urlObj = new URL(url);
-    const params = new URLSearchParams(urlObj.search);
+// function getCourseString(url : string) : string {
+//     const urlObj = new URL(url);
+//     const params = new URLSearchParams(urlObj.search);
+//
+//     const dept = params.get('dept');
+//     const course = params.get('course');
+//
+//     return `${dept}/${course}`
+// }
 
-    const dept = params.get('dept');
-    const course = params.get('course');
+function getCourseString(rawString : string) : string {
+    const dept = rawString.substring(0, 4);
+    const course = rawString.substring(7, 10);
 
     return `${dept}/${course}`
 }
+
 
 
 function getCourseJson(courseString : string) : any {
@@ -30,15 +38,7 @@ function getCourseJson(courseString : string) : any {
         });
 }
 
-function DOMtoString(selector: any) {
-    if (selector) {
-        selector = document.querySelector(selector);
-        if (!selector) return "ERROR: querySelector failed to find node"
-    } else {
-        selector = document.documentElement;
-    }
-    return selector.outerHTML;
-}
+
 function App() {
     const  handleClick = async () => {
         const [tab] = await window.chrome.tabs.query({active: true, currentWindow: true});
@@ -53,11 +53,12 @@ function App() {
             document.body.textContent = 'Cannot access page';
             return;
         }
-        // process the result
-        console.log(result);
-        var courseCodes = result.match(/\b[A-Z]{2,4}_V\s*\d{3}\b/g);
-        console.log(courseCodes);
-        alert(courseCodes[0])
+        var rawString = result.match(/\b[A-Z]{2,4}_V\s*\d{3}\b/g);
+        console.log(rawString[0]);
+        const courseString = getCourseString(rawString[0]);
+        console.log(courseString);
+        const courseJson = JSON.parse(getCourseJson(courseString));
+        alert("Course Average for " + rawString + ": " + courseJson.average);
     };
 
     return (
