@@ -5,26 +5,6 @@ const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/
 
 
 
-
-
-
-function getCourseJson(courseString : string) : any {
-    fetch(UBCGRADES + courseString)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            return data;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-}
-
 async function getPageText() {
     const [tab] = await window.chrome.tabs.query({active: true, currentWindow: true});
     let result;
@@ -68,20 +48,112 @@ function getCourseString(pageText : string) : string {
 
     }
 }
+async function getCourseJson(courseString: string): Promise<any> {
+    try {
+        const response = await fetch(UBCGRADES + courseString);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
 
-function processCourseString(courseString:string) {
-    const courseJson = JSON.parse(getCourseJson(courseString));
-    alert("Course Average for " + courseString + ": " + courseJson.average)
-};
+async function processCourseString(courseString: string) {
+    try {
+        const courseJson = await getCourseJson(courseString);
+        alert("Course Average for " + courseString + ": " + courseJson.average);
+    } catch (error) {
+        console.error('Error processing course string:', error);
+    }
+}
+function processProfString(profString : string) {
+    let firstName = profString.trim().split(" ")[0]
+    let lastName = profString.trim().split(" ")[1]
+    let html = "";
+    let professorRating = 0.0;
+    let professorID = 0;
+    let numRatings = 0;
+    let wouldTakeAgainPercent;
+    let avgDifficulty;
+    let url = "";
+    
+    if (profString.length > 1) {
+  
+        url = `https://www.ratemyprofessors.com/search/professors/1413?q=
+        ${lastName.toLowerCase()}%20${firstName.toLowerCase()}`;
+    }
+  
+    fetch(url)
+    .then(function (response) {
+        return response.text();
+    })
+    .then(function (page_html) {
+        html = page_html;
+
+        if (html.includes('"resultCount":0')) {
+        // professorRating = null;
+        // professorID = null;
+        // numRatings = null;
+        // wouldTakeAgainPercent = null;
+        // avgDifficulty = null;
+        } else {
+        
+        let result = html.search( /"avgRating":/g);
+
+        let extractedRating = html.slice(result + 12, result + 15);
+
+        if (/[a-zA-Z\,]/g.test(extractedRating)) {
+            professorRating = parseInt(html.slice(result + 12, result + 13));
+        } else {
+            professorRating = parseFloat(extractedRating);
+        }
+
+        // let match = html.match(/"legacyId":\d+/);
+
+        // if (match) {
+        //     professorID = match[0].match(/\d+/)[0];
+        // }
+
+
+        // match = html.match(/"numRatings":\d+/);
+
+        // if (match) {
+        //     numRatings = match[0].match(/\d+/)[0];
+        // }
+
+        
+        // match = html.match(/"wouldTakeAgainPercent":\d+(\.\d+)?/);
+
+        // if (match) {
+        //     wouldTakeAgainPercent = parseFloat(match[0].match(/\d+(\.\d+)?/));
+        // }
+
+        
+        // match = html.match(/"avgDifficulty":\d+(\.\d+)?/);
+
+        // if (match) {
+        //     avgDifficulty = match[0].match(/\d+(\.\d+)?/)[0];
+        // }
+        // }
+
+
+    }
+    });
+}
 
 function App() {
     const  handleClick = async () => {
         const  pageText  = await getPageText();
 
-        const profString = getProfString(pageText)
         const courseString = getCourseString(pageText)
-
+        const profString = getProfString(pageText)
+        
         processCourseString(courseString);
+        processProfString(profString);
         
     };
 
