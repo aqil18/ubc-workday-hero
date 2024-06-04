@@ -2,14 +2,16 @@
   color: white;
   text-align: center;
 }
-
+.Header {
+  background-color: black;
+  align-items: center;
+}
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 15rem;
   height: 15rem;
-  background-color: green;
-
+  background-color: rgb(255, 255, 255);
 
 }

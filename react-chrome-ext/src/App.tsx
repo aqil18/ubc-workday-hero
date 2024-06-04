@@ -159,6 +159,9 @@ function App() {
 
     return (
       <div className="App">
+      <div className="Header">
+        UBC Workday Hero
+      </div>
           <button type="button" onClick={handleClick}>Get Course Grades</button>
       </div>
     );
