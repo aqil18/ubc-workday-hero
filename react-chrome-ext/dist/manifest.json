@@ -1,14 +1,15 @@
 {
   "version": "1.0.0",
   "manifest_version": 3,
-  "name": "React Chrome Extension",
-  "description": "This is a Chrome extension built with React and TypeScript",
+  "name": "UBC Workday Hero",
+  "description": "A Chrome extension to fetch and display UBC course and professor information.",
   "action": {
     "default_popup": "js/index.html",
     "default_title": "React Chrome Extension"
   },
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "tabs"
   ]
 }

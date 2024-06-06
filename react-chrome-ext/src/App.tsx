@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/'
 
@@ -63,9 +64,15 @@ async function getCourseJson(courseString: string): Promise<any> {
 }
 
 async function processCourseString(courseString: string) {
+    let courseDict: Record<string, number> = {};
+
     try {
         const courseJson = await getCourseJson(courseString);
-        alert("Course Average for " + courseString + ": " + courseJson.average);
+        courseDict["average"] = courseJson.average;
+        courseDict["average5"] = courseJson.average_past_5_yrs;
+        courseDict["max"] = courseJson.max_course_avg;
+        courseDict["min"] = courseJson.min_course_avg;
+        return courseDict
     } catch (error) {
         console.error('Error processing course string:', error);
     }
@@ -73,76 +80,14 @@ async function processCourseString(courseString: string) {
 function processProfString(profString : string) {
     let firstName = profString.trim().split(" ")[0]
     let lastName = profString.trim().split(" ")[1]
-    let html = "";
-    let professorRating = 0.0;
-    let professorID = 0;
-    let numRatings = 0;
-    let wouldTakeAgainPercent;
-    let avgDifficulty;
     let url = "";
     
     if (profString.length > 1) {
-  
         url = `https://www.ratemyprofessors.com/search/professors/1413?q=
         ${lastName.toLowerCase()}%20${firstName.toLowerCase()}`;
     }
   
-    fetch(url)
-    .then(function (response) {
-        return response.text();
-    })
-    .then(function (page_html) {
-        html = page_html;
-
-        if (html.includes('"resultCount":0')) {
-        // professorRating = null;
-        // professorID = null;
-        // numRatings = null;
-        // wouldTakeAgainPercent = null;
-        // avgDifficulty = null;
-        } else {
-        
-        let result = html.search( /"avgRating":/g);
-
-        let extractedRating = html.slice(result + 12, result + 15);
-
-        if (/[a-zA-Z\,]/g.test(extractedRating)) {
-            professorRating = parseInt(html.slice(result + 12, result + 13));
-        } else {
-            professorRating = parseFloat(extractedRating);
-        }
-
-        // let match = html.match(/"legacyId":\d+/);
-
-        // if (match) {
-        //     professorID = match[0].match(/\d+/)[0];
-        // }
-
-
-        // match = html.match(/"numRatings":\d+/);
-
-        // if (match) {
-        //     numRatings = match[0].match(/\d+/)[0];
-        // }
-
-        
-        // match = html.match(/"wouldTakeAgainPercent":\d+(\.\d+)?/);
-
-        // if (match) {
-        //     wouldTakeAgainPercent = parseFloat(match[0].match(/\d+(\.\d+)?/));
-        // }
-
-        
-        // match = html.match(/"avgDifficulty":\d+(\.\d+)?/);
-
-        // if (match) {
-        //     avgDifficulty = match[0].match(/\d+(\.\d+)?/)[0];
-        // }
-        // }
-
-
-    }
-    });
+    return url;
 }
 
 function App() {
@@ -152,18 +97,24 @@ function App() {
         const courseString = getCourseString(pageText)
         const profString = getProfString(pageText)
         
-        processCourseString(courseString);
-        processProfString(profString);
+        const courseDict = await processCourseString(courseString);
+        const profUrl = processProfString(profString);
         
+        console.log(courseDict, profUrl);
+
     };
 
     return (
-      <div className="App">
-      <div className="Header">
-        UBC Workday Hero
-      </div>
-          <button type="button" onClick={handleClick}>Get Course Grades</button>
-      </div>
+        <div className="App container mt-3">
+            <div className="Header mb-3">
+                <h1 className="text-center">UBC Workday Hero</h1>
+            </div>
+            <div className="text-center">
+                <button className="btn btn-primary" type="button" onClick={handleClick}>
+                    Get Course Grades
+                </button>
+            </div>
+        </div>
     );
 }
 
