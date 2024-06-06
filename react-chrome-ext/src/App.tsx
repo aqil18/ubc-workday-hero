@@ -1,7 +1,7 @@
-import React from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect } from 'react';
+import './App.css';
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/'
 
 
@@ -91,30 +91,33 @@ function processProfString(profString : string) {
 }
 
 function App() {
-    const  handleClick = async () => {
-        const  pageText  = await getPageText();
 
-        const courseString = getCourseString(pageText)
-        const profString = getProfString(pageText)
-        
-        const courseDict = await processCourseString(courseString);
-        const profUrl = processProfString(profString);
-        
-        console.log(courseDict, profUrl);
+    useEffect(() => {
+        const fetchData = async () => {
+            const pageText = await getPageText();
 
-    };
+            const courseString = getCourseString(pageText);
+            const profString = getProfString(pageText);
+
+            const courseDict = await processCourseString(courseString);
+            const profUrl = processProfString(profString);
+            
+            console.log(courseDict, profUrl);
+        };
+
+        fetchData();
+    }, []); // Empty dependency array ensures this runs only once after the initial render
+
 
     return (
         <div className="App container mt-3">
-            <div className="Header mb-3">
-                <h1 className="text-center">UBC Workday Hero</h1>
-            </div>
-            <div className="text-center">
-                <button className="btn btn-primary" type="button" onClick={handleClick}>
-                    Get Course Grades
-                </button>
-            </div>
+        <div className="Header mb-3">
+          <body className="style1">UBC Workday Hero</body>
         </div>
+        <div className="text-center">
+          Hello
+        </div>
+      </div>
     );
 }
 

@@ -15,3 +15,15 @@
   background-color: rgb(255, 255, 255);
 
 }
+
+.style1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  /* Other styles for style1 */
+}
+
+.style2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  /* Other styles for style2 */
+}
