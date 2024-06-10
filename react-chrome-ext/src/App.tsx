@@ -111,16 +111,7 @@ function App() {
 
     return (
         <div className="App container mt-3">
-            <head>
-            <style type="text/css" >
-                body {
-                width: 1005px; /* your desired width */
-                max-width: 100%;
-                position: relative;
-                vertical-align:middle;
-                }
-                </style>
-            </head>
+
             <div className="Header mb-3">
                 <body className="style1">UBC Workday Hero</body>
             </div>
