@@ -1,20 +1,44 @@
-.App {
-  color: white;
-  text-align: center;
+.container-fluid {
+  width: 100%;
+  padding: 0;
 }
-.Header {
-  background-color: black;
-  align-items: center;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 15rem;
-  height: 15rem;
-  background-color: rgb(255, 255, 255);
 
+.title {
+  margin-bottom: 20px; /* Space below the title */
+  padding: 10px; /* Padding inside the title div */
+  text-align: center; /* Center align the title content */
+  background-color: #f8f9fa; /* Light background color for the title div */
 }
+
+.title-content {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Title text color */
+}
+
+.content {
+  padding: 10px; /* Padding inside each content div */
+}
+
+.content-upper {
+  margin-bottom: 20px; /* Space below the upper content */
+}
+
+.upper-section, .bottom-section {
+  background-color: #e9ecef; /* Light background color for sections */
+  padding: 15px; /* Padding inside each section */
+  border-radius: 5px; /* Rounded corners for sections */
+}
+
+/* Optional: Different styling for upper and lower sections */
+.upper-section {
+  /* Your styles for the upper section */
+}
+
+.bottom-section {
+  /* Your styles for the bottom section */
+}
+
 
 .style1 {
   font-family: 'Roboto', sans-serif;

@@ -1,9 +1,9 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect } from 'react';
 import './App.css';
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/'
-
+let courseJson;
+let profUrl;
 
 
 async function getPageText() {
@@ -110,15 +110,18 @@ function App() {
 
 
     return (
-        <div className="App container mt-3">
+<div className="container-fluid">
+    <div className="title">
+        <div className="title-content">UBC Workday Hero</div>
+    </div>
+    <div className="content content-upper">
+        <section className="upper-section">Grade Section</section>
+    </div>
+    <div className="content content-lower">
+        <section className="bottom-section">Prof Section</section>
+    </div>
+</div>
 
-            <div className="Header mb-3">
-                <body className="style1">UBC Workday Hero</body>
-            </div>
-            <div className="text-center">
-                Hello
-            </div>
-      </div>
     );
 }
 
