@@ -110,18 +110,17 @@ function App() {
 
 
     return (
-<div className="container-fluid">
-    <div className="title">
-        <div className="title-content">UBC Workday Hero</div>
-    </div>
-    <div className="content content-upper">
-        <section className="upper-section">Grade Section</section>
-    </div>
-    <div className="content content-lower">
-        <section className="bottom-section">Prof Section</section>
-    </div>
-</div>
-
+        <div className="container-fluid">
+            <div className="title">
+                <div className="title-content">UBC Workday Hero</div>
+            </div>
+            <div className="content content-upper">
+                <section className="upper-section">Grade Section</section>
+            </div>
+            <div className="content content-lower">
+                <section className="bottom-section">Prof Section</section>
+            </div>
+        </div>
     );
 }
 
