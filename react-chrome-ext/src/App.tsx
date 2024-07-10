@@ -101,7 +101,7 @@ function App() {
             const courseString = getCourseString(pageText);
             const profString = getProfString(pageText);
 
-            const courseDict = await processCourseString(courseString);
+            const courseDict : any = await processCourseString(courseString);
             setAvg(courseDict["average"]);
             const profUrl = processProfString(profString);
             
