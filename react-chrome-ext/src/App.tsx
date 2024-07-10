@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/'
 let courseJson;
@@ -91,6 +91,8 @@ function processProfString(profString : string) {
 }
 
 function App() {
+    const [avg, setAvg] = useState("-1");
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -100,6 +102,7 @@ function App() {
             const profString = getProfString(pageText);
 
             const courseDict = await processCourseString(courseString);
+            setAvg(courseDict["average"]);
             const profUrl = processProfString(profString);
             
             console.log(courseDict, profUrl);
@@ -116,6 +119,7 @@ function App() {
             </div>
             <div className="content content-upper">
                 <section className="upper-section">Grade Section</section>
+                <section>{avg}</section>
             </div>
             <div className="content content-lower">
                 <section className="bottom-section">Prof Section</section>
