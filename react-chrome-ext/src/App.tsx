@@ -91,7 +91,11 @@ function processProfString(profString : string) {
 }
 
 function App() {
-    const [avg, setAvg] = useState("-1");
+    const [average, setAverage] = useState("N/A");
+    const [average5, setAverage5] = useState("N/A");
+    const [max, setMax] = useState("N/A");
+    const [min, setMin] = useState("N/A");
+    const [profUrl, setProfUrl] = useState("N/A");
 
 
     useEffect(() => {
@@ -102,8 +106,13 @@ function App() {
             const profString = getProfString(pageText);
 
             const courseDict : any = await processCourseString(courseString);
-            setAvg(courseDict["average"]);
+            setAverage(courseDict["average"]);
+            setAverage5(courseDict["average5"]);
+            setMax(courseDict["max"]);
+            setMin(courseDict("min"));
+
             const profUrl = processProfString(profString);
+            setProfUrl(profUrl);
             
             console.log(courseDict, profUrl);
         };
@@ -119,10 +128,11 @@ function App() {
             </div>
             <div className="content content-upper">
                 <section className="upper-section">Grade Section</section>
-                <section>{avg}</section>
+                <section>Overall: {average} Past Years: {average5} Max: {max} Min: {min}</section>
             </div>
             <div className="content content-lower">
                 <section className="bottom-section">Prof Section</section>
+                <section>RateMyProf Link: {profUrl}</section>
             </div>
         </div>
     );
