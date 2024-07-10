@@ -126,11 +126,11 @@ function App() {
             <div className="title">
                 <div className="title-content">UBC Workday Hero</div>
             </div>
-            <div className="content content-upper">
+            <div className="content-upper">
                 <section className="upper-section">Grade Section</section>
                 <section>Overall: {average} Past Years: {average5} Max: {max} Min: {min}</section>
             </div>
-            <div className="content content-lower">
+            <div className="content-lower">
                 <section className="bottom-section">Prof Section</section>
                 <section>RateMyProf Link: {profUrl}</section>
             </div>

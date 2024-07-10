@@ -22,6 +22,7 @@
 
 .content-upper {
   margin-bottom: 20px; /* Space below the upper content */
+  background-color: black;
 }
 
 .upper-section, .bottom-section {
@@ -43,6 +44,7 @@
 .style1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  
   /* Other styles for style1 */
 }
 
