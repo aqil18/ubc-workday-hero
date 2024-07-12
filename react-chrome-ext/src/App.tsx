@@ -124,15 +124,22 @@ function App() {
     return (
         <div className="container-fluid">
             <div className="title">
-                <div className="title-content">UBC Workday Hero</div>
+                <section className="title-content">
+                    UBC Workday Hero
+                </section>
             </div>
-            <div className="content-upper">
-                <section className="upper-section">Grade Section</section>
-                <section>Overall: {average} Past Years: {average5} Max: {max} Min: {min}</section>
+            <div className='content-upper'>
+                <section className="upper-section">
+                    <h1>Grades</h1>
+                    <p>Overall: {average} Past Years: {average5} Max: {max} Min: {min}</p>
+                </section>
             </div>
-            <div className="content-lower">
-                <section className="bottom-section">Prof Section</section>
-                <section>RateMyProf Link: {profUrl}</section>
+            <div className='content-bottom'>
+                <section className="bottom-section">
+                <h1>Prof Section</h1>
+                <h3>RateMyProf Link: {profUrl}</h3>
+                </section>
+                <section></section>
             </div>
         </div>
     );

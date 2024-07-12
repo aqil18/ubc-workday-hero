@@ -20,9 +20,8 @@
   padding: 10px; /* Padding inside each content div */
 }
 
-.content-upper {
+.content-upper, content-bottom {
   margin-bottom: 20px; /* Space below the upper content */
-  background-color: black;
 }
 
 .upper-section, .bottom-section {
@@ -31,14 +30,6 @@
   border-radius: 5px; /* Rounded corners for sections */
 }
 
-/* Optional: Different styling for upper and lower sections */
-.upper-section {
-  /* Your styles for the upper section */
-}
-
-.bottom-section {
-  /* Your styles for the bottom section */
-}
 
 
 .style1 {
