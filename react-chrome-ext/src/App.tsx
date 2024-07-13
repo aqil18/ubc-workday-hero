@@ -130,14 +130,14 @@ function App() {
             </div>
             <div className='content-upper'>
                 <section className="upper-section">
-                    <h1>Grades</h1>
-                    <p>Overall: {average} Past Years: {average5} Max: {max} Min: {min}</p>
+                    <h1 className='style2'>Grades</h1>
+                    <p className='style1'>Overall: {average} Past Years: {average5} Max: {max} Min: {min}</p>
                 </section>
             </div>
             <div className='content-bottom'>
                 <section className="bottom-section">
                 <h1>Prof Section</h1>
-                <h3>RateMyProf Link: {profUrl}</h3>
+                <p>RateMyProf Link: {profUrl}</p>
                 </section>
                 <section></section>
             </div>

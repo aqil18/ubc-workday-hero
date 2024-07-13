@@ -25,7 +25,7 @@
 }
 
 .upper-section, .bottom-section {
-  background-color: #e9ecef; /* Light background color for sections */
+  background-color: #000000; /* Light background color for sections */
   padding: 15px; /* Padding inside each section */
   border-radius: 5px; /* Rounded corners for sections */
 }
@@ -35,12 +35,14 @@
 .style1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  
+  color: white;
   /* Other styles for style1 */
 }
 
 .style2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
+  color: white;
+  
   /* Other styles for style2 */
 }
