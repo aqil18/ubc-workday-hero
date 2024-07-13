@@ -131,13 +131,29 @@ function App() {
             <div className='content-upper'>
                 <section className="upper-section">
                     <h1 className='style2'>Grades</h1>
-                    <p className='style1'>Overall: {average} Past Years: {average5} Max: {max} Min: {min}</p>
+                    
+                    <div className='flexbox-container'>
+                        <div>
+                            <p className='style1'>Overall: {average}</p>
+                        </div>
+                        <div>
+                            <p className='style1'>Past Years: {average5}</p>
+                        </div> 
+                        <div>
+                            <p className='style1'> Max: {max} </p>
+                        </div>
+                        <div>
+                            <p className='style1'>Min: {min}</p>
+                        </div>
+                    </div>
+                
+                
                 </section>
             </div>
             <div className='content-bottom'>
                 <section className="bottom-section">
-                <h1>Prof Section</h1>
-                <p>RateMyProf Link: {profUrl}</p>
+                <h1 className='style2'>Prof Section</h1>
+                <p className='style1'>RateMyProf Link: {profUrl}</p>
                 </section>
                 <section></section>
             </div>
