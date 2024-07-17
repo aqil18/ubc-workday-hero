@@ -68,10 +68,11 @@ async function processCourseString(courseString: string) {
 
     try {
         const courseJson = await getCourseJson(courseString);
-        courseDict["average"] = courseJson.average;
-        courseDict["average5"] = courseJson.average_past_5_yrs;
-        courseDict["max"] = courseJson.max_course_avg;
-        courseDict["min"] = courseJson.min_course_avg;
+        console.log(typeof courseJson.average)
+        courseDict["average"] = courseJson.average.toFixed(2);
+        courseDict["average5"] = courseJson.average_past_5_yrs.toFixed(2);
+        courseDict["max"] = courseJson.max_course_avg.toFixed(2);
+        courseDict["min"] = courseJson.min_course_avg.toFixed(2);
         return courseDict
     } catch (error) {
         console.error('Error processing course string:', error);
@@ -83,10 +84,10 @@ function processProfString(profString : string) {
     let url = "";
     
     if (profString.length > 1) {
-        url = `https://www.ratemyprofessors.com/search/professors/1413?q=
-        ${lastName.toLowerCase()}%20${firstName.toLowerCase()}`;
+        url = `<a href=https://www.ratemyprofessors.com/search/professors/1413?q=
+        ${lastName.toLowerCase()}%20${firstName.toLowerCase()}></a>`;
     }
-  
+    
     return url;
 }
 
@@ -109,10 +110,13 @@ function App() {
             setAverage(courseDict["average"]);
             setAverage5(courseDict["average5"]);
             setMax(courseDict["max"]);
-            setMin(courseDict("min"));
+            setMin(courseDict["min"]);
 
             const profUrl = processProfString(profString);
+            
+            
             setProfUrl(profUrl);
+
             
             console.log(courseDict, profUrl);
         };
