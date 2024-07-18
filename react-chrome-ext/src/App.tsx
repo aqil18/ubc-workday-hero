@@ -25,7 +25,6 @@ function getProfString(pageText : string) : string {
 
     if (rawProfString) {
         const instructorName = rawProfString[1].trim();
-        console.log(instructorName);
         return instructorName;
     } else {
         console.log("Prof not found");
@@ -67,7 +66,6 @@ async function processCourseString(courseString: string) {
 
     try {
         const courseJson = await getCourseJson(courseString);
-        console.log(typeof courseJson.average)
         courseDict["average"] = courseJson.average.toFixed(2);
         courseDict["average5"] = courseJson.average_past_5_yrs.toFixed(2);
         courseDict["max"] = courseJson.max_course_avg.toFixed(2);
@@ -116,6 +114,8 @@ function App() {
             setProfDiff(profJson.difficulty);
             setProfReviews(profJson.num_ratings);
             setProfWouldTake(profJson.woud_take_again);
+            console.log(profWouldTake);
+            console.log(profJson.would_take_again);
             };
 
         fetchData();
