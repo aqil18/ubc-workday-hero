@@ -77,21 +77,6 @@ async function processCourseString(courseString: string) {
         console.error('Error processing course string:', error);
     }
 }
-function processProfStrings(profString : string) {
-    // let firstName = profString.trim().split(" ")[0]
-    // let lastName = profString.trim().split(" ")[1]
-    // let url = "";
-    
-    // if (profString.length > 1) {
-    //     url = `<a href=https://www.ratemyprofessors.com/search/professors/1413?q=
-    //     ${lastName.toLowerCase()}%20${firstName.toLowerCase()}></a>`;
-    // }
-    
-    // return url;
-
-    let courseDict: Record<string, number> = {};
-
-}
 
 async function processProfString(profString : string) {
     try {

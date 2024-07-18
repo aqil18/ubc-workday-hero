@@ -1,21 +1,10 @@
 import ratemyprofessor
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
-app = Flask(__name__)
-school = ratemyprofessor.get_school_by_name("University of British Columbia")
-
-@app.route('/process', methods=['POST'])
-def process_input():
-    profName = request.json
-    # Process the input data as needed
-    response =  getFromRmp(profName)
-    return jsonify(response)
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 def getFromRmp(profName):
-    professor = ratemyprofessor.get_professor_by_school_and_name(school, profName)
+    professor = ratemyprofessor.get_professor_by_school_and_name(SCHOOL, profName)
     if professor is not None:
         print("%s works in the %s Department of %s." % (professor.name, professor.department, professor.school.name))
         print("Rating: %s / 5.0" % professor.rating)
@@ -32,3 +21,18 @@ def getFromRmp(profName):
             "difficulty" : professor.difficulty,
             "num_ratings": professor.num_ratings,
             "would_take_again"  : professor.would_take_again}
+
+app = Flask(__name__)
+CORS(app)
+SCHOOL = ratemyprofessor.get_school_by_name("University of British Columbia")
+
+@app.route('/process', methods=['POST'])
+def process_input():
+    profName = request.json
+    # Process the input data as needed
+    response =  getFromRmp(profName)
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
