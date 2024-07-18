@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/';
-import axios from axios;
+import axios from 'axios';
 
 
 async function getPageText() {
@@ -77,7 +77,7 @@ async function processCourseString(courseString: string) {
         console.error('Error processing course string:', error);
     }
 }
-function processProfString(profString : string) {
+function processProfStrings(profString : string) {
     // let firstName = profString.trim().split(" ")[0]
     // let lastName = profString.trim().split(" ")[1]
     // let url = "";
@@ -93,13 +93,21 @@ function processProfString(profString : string) {
 
 }
 
+async function processProfString(profString : string) {
+    try {
+        const response = await axios.post('http://localhost:5000/process', { input: profString });
+        return response.data
+    } catch (error) {
+      console.error('Error sending data to Flask:', error);
+    }
+  };
+
 function App() {
     const [average, setAverage] = useState("N/A");
     const [average5, setAverage5] = useState("N/A");
     const [max, setMax] = useState("N/A");
-    const [min, setMin] = useState("N/A");
-    
-    const [profUrl, setProfUrl] = useState("N/A");
+    const [min, setMin] = useState("N/A");    
+
     const [profRating, setProfRating] = useState("N/A");
     const [profDiff, setProfDiff] = useState("N/A");
     const [profReviews, setProfReviews] = useState("N/A");
@@ -118,10 +126,11 @@ function App() {
             setMax(courseDict["max"]);
             setMin(courseDict["min"]);
 
-            const profDict = processProfString(profString);
-            
-        
-
+            const profJson : any = await processProfString(profString);
+            setProfRating(profJson.rating);
+            setProfDiff(profJson.difficulty);
+            setProfReviews(profJson.num_ratings);
+            setProfWouldTake(profJson.woud_take_again);
             };
 
         fetchData();
@@ -163,16 +172,16 @@ function App() {
                     
                     <div className='flexbox-container'>
                         <div>
-                            <p className='style1'>Overall: {average}</p>
+                            <p className='style1'>Rating: {profRating}/5</p>
                         </div>
                         <div>
-                            <p className='style1'>Past Years: {average5}</p>
+                            <p className='style1'>Difficulty: {profDiff}/5</p>
                         </div> 
                         <div>
-                            <p className='style1'> Max: {max} </p>
+                            <p className='style1'> Number of Reviews: {profReviews} </p>
                         </div>
                         <div>
-                            <p className='style1'>Min: {min}</p>
+                            <p className='style1'>Would Take Again: {profWouldTake}%</p>
                         </div>
                     </div>
 
