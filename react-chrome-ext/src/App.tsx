@@ -91,13 +91,10 @@ function App() {
     const [max, setMax] = useState("N/A");
     const [min, setMin] = useState("N/A");    
 
-    const [profRating, setProfRating] = useState("N/A");
-    const [profDiff, setProfDiff] = useState("N/A");
-    const [profReviews, setProfReviews] = useState("N/A");
-    const [profWouldTake, setProfWouldTake] = useState("N/A");
-    const [profPercent, setProfPercent] = useState("N/A")
-    const [json, setJson] = useState({
+    const [profJson, setProfJson] = useState({
         "rating" : 0,
+        "difficulty" : 0,
+        "num_ratings": 0,
         "would_take_again" : 0 
     });
 
@@ -114,18 +111,8 @@ function App() {
             setMax(courseDict["max"]);
             setMin(courseDict["min"]);
 
-            const profJson : any = await processProfString(profString);
-            setJson(profJson);
-            setProfRating(profJson.rating);
-            setProfDiff(profJson.difficulty);
-            setProfReviews(profJson.num_ratings);
-            console.log(profJson.would_take_again);
-            console.log(profJson.num_ratings);
-            setProfWouldTake(profJson.woud_take_again);
-            setProfPercent(profJson.would_take_again);
-            console.log(profReviews);
-            console.log(profWouldTake);
-            console.log(profPercent);
+            const json : any = await processProfString(profString);
+            setProfJson(json);
 
             };
 
@@ -142,20 +129,24 @@ function App() {
             </div>
             <div className='content-upper'>
                 <section className="upper-section">
-                    <h1 className='style2'>Grades</h1>
+                    <section className='style2'>UBC Grades Stats</section>
                     
                     <div className='flexbox-container'>
-                        <div>
-                            <p className='style1'>Overall: {average}</p>
+                        <div className='square'>
+                            <section className='style2'>{average}</section>
+                            <section className='style1'> Overall Avg</section>
                         </div>
-                        <div>
-                            <p className='style1'>Past Years: {average5}</p>
+                        <div className='square'>
+                            <section className='style2'> {average5}</section>
+                            <section className='style1'> Past 5 Years Avg</section>
                         </div> 
-                        <div>
-                            <p className='style1'> Max: {max} </p>
+                        <div className='square'>
+                            <section className='style2'> {max} </section>
+                            <section className='style1'> Max Avg </section>
                         </div>
-                        <div>
-                            <p className='style1'>Min: {min}</p>
+                        <div className='square'>
+                            <section className='style2'>{min}</section>
+                            <section className='style1'>Min Avg</section>
                         </div>
                     </div>
                 
@@ -164,20 +155,24 @@ function App() {
             </div>
             <div className='content-bottom'>
                 <section className="bottom-section">
-                    <h1 className='style2'>Professor Details</h1>
+                    <h1 className='style2'>Rate My Professor Stats</h1>
                     
                     <div className='flexbox-container'>
-                        <div>
-                            <p className='style1'>Rating: {json.rating}/5</p>
+                        <div className='square'>
+                            <section className='style2'>{profJson.rating}/5</section>
+                            <section className='style1'>Prof Rating</section>
                         </div>
-                        <div>
-                            <p className='style1'>Difficulty: {profDiff}/5</p>
+                        <div className='square'>
+                            <section className='style2'>{profJson.difficulty}/5</section>
+                            <section className='style1'>Prof Difficulty</section>
                         </div> 
-                        <div>
-                            <p className='style1'> Number of Reviews: {profReviews} </p>
+                        <div className='square'>
+                            <section className='style2'>{profJson.num_ratings}</section>
+                            <section className='style1'>No. of Reviews</section>
                         </div>
-                        <div>
-                            <p className='style1'>Would Take Again: {json.would_take_again}%</p>
+                        <div className='square'>
+                            <section className='style2'>{profJson.would_take_again}%</section>
+                            <section className='style1'>Would Take Again</section>
                         </div>
                     </div>
 

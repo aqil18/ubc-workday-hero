@@ -5,16 +5,13 @@
 
 .title {
   margin-bottom: 20px; /* Space below the title */
-  padding: 10px; /* Padding inside the title div */
-  text-align: center; /* Center align the title content */
-  background-color: #f8f9fa; /* Light background color for the title div */
+  padding: 0px; /* Padding inside the title div */
+  padding-top: 5px;
+  text-align: left; /* Center align the title content */
+  border-bottom: 5px, solid, #000000;
 }
 
-.title-content {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333; /* Title text color */
-}
+
 
 .content {
   padding: 10px; /* Padding inside each content div */
@@ -32,22 +29,35 @@
 .upper-section, .bottom-section {
   background-color: #000000; /* Light background color for sections */
   padding: 15px; /* Padding inside each section */
-  border-radius: 5px; /* Rounded corners for sections */
+  border-radius: 15px; /* Rounded corners for sections */
 }
 
+.square {
+  padding: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
 
+.title-content {
+  font-family: 'Roboto', sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  color: #000000; /* Title text color */
+}
 
 .style1 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-size: small;
+  font-weight: medium;
   color: white;
   /* Other styles for style1 */
 }
 
 .style2 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-size: large;
+  font-weight: bold;
   color: white;
-  
-  /* Other styles for style2 */
+  /* Other styles for style1 */
 }
