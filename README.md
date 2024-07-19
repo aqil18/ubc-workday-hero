@@ -1,5 +1,4 @@
-# ssc-hero
-ssc-hero
+# UBC Workday Hero
 
 ## api link to use
 ### Template
