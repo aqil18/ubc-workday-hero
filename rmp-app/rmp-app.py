@@ -1,7 +1,7 @@
 import ratemyprofessor
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
+import os
 
 def getFromRmp(profName):
     professor = ratemyprofessor.get_professor_by_school_and_name(SCHOOL, profName)
@@ -21,13 +21,13 @@ app = Flask(__name__)
 CORS(app)
 SCHOOL = ratemyprofessor.get_school_by_name("University of British Columbia")
 
-@app.route('/process', methods=['POST'])
+@app.route('/process-rmp', methods=['POST'])
 def process_input():
     profName = request.json
-    # Process the input data as needed
     response =  getFromRmp(profName)
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
 
