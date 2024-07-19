@@ -6,7 +6,6 @@ import os
 def getFromRmp(profName):
     professor = ratemyprofessor.get_professor_by_school_and_name(SCHOOL, profName)
     if professor is not None:
-        print(round(professor.would_take_again, 1))
         return {"name" : professor.name,
             "department": professor.department,
             "school": professor.school.name,
