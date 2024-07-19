@@ -95,6 +95,11 @@ function App() {
     const [profDiff, setProfDiff] = useState("N/A");
     const [profReviews, setProfReviews] = useState("N/A");
     const [profWouldTake, setProfWouldTake] = useState("N/A");
+    const [profPercent, setProfPercent] = useState("N/A")
+    const [json, setJson] = useState({
+        "rating" : 0,
+        "would_take_again" : 0 
+    });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -110,12 +115,18 @@ function App() {
             setMin(courseDict["min"]);
 
             const profJson : any = await processProfString(profString);
+            setJson(profJson);
             setProfRating(profJson.rating);
             setProfDiff(profJson.difficulty);
             setProfReviews(profJson.num_ratings);
-            setProfWouldTake(profJson.woud_take_again);
-            console.log(profWouldTake);
             console.log(profJson.would_take_again);
+            console.log(profJson.num_ratings);
+            setProfWouldTake(profJson.woud_take_again);
+            setProfPercent(profJson.would_take_again);
+            console.log(profReviews);
+            console.log(profWouldTake);
+            console.log(profPercent);
+
             };
 
         fetchData();
@@ -157,7 +168,7 @@ function App() {
                     
                     <div className='flexbox-container'>
                         <div>
-                            <p className='style1'>Rating: {profRating}/5</p>
+                            <p className='style1'>Rating: {json.rating}/5</p>
                         </div>
                         <div>
                             <p className='style1'>Difficulty: {profDiff}/5</p>
@@ -166,7 +177,7 @@ function App() {
                             <p className='style1'> Number of Reviews: {profReviews} </p>
                         </div>
                         <div>
-                            <p className='style1'>Would Take Again: {profWouldTake}%</p>
+                            <p className='style1'>Would Take Again: {json.would_take_again}%</p>
                         </div>
                     </div>
 
