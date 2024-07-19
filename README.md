@@ -1,5 +1,10 @@
 # UBC Workday Hero
 
+## Tech Used
+Frontend -> Typescript, JavaScript, React, HTML, CSS, Bootstrap, axios
+Backend -> Python, Flask, CORS, Docker, Terraform, AWS ECR, AWS EKS
+
+
 ## api link to use
 ### Template
 https://ubcgrades.com/api/v3/course-statistics/campus/subject/course
