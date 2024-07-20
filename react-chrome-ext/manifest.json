@@ -1,12 +1,21 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.0.0",
   "manifest_version": 3,
   "name": "UBC Workday Hero",
-  "description": "A Chrome extension to fetch and display UBC course and professor information.",
-  "action": {
-    "default_popup": "js/index.html",
-    "default_title": "React Chrome Extension"
+  "description": "A Chrome extension to fetch and display UBC course and professor statistics.",
+  "icons": {
+    "16": "icons/1.png",
+    "48": "icons/2.png"
   },
+  "action": {
+    "default_icon": {
+      "16": "icons/1.png",
+      "48": "icons/2.png"
+    },
+    "default_popup": "js/index.html",
+    "default_title": "UBC Workday Hero"
+  },
+
   "permissions": [
     "activeTab",
     "scripting",

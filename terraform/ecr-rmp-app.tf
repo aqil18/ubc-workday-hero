@@ -11,6 +11,6 @@ provider "aws" {
   region = "ca-central-1"
 }
 
-resource "aws_ecr_repository" "sejal_docker_image" {
-  name = "sejal_docker_image"
+resource "aws_ecr_repository" "rmp-app" {
+  name = "rmp-app"
 }
