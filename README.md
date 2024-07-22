@@ -1,8 +1,14 @@
 # UBC Workday Hero
 
 ## Tech Used
-Frontend -> Typescript, JavaScript, React, HTML, CSS, Bootstrap, axios
-Backend -> Python, Flask, CORS, Docker, Terraform, AWS ECR, AWS EKS
+How it was made
+🎨  Designed on Figma
+💻  Frontend created with a simple React, JavaScript and Bootstrap UI
+💪  Backend created with a Python Flask 
+🧠  Hosted by containerizing with Docker and deployed on AWS ECR and hosted on AWS ECS
+
+This has been sitting in my GitHub for a while and finally finished it up for everyone to use!
+Peace
 
 
 ## api link to use
