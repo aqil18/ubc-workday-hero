@@ -3,7 +3,7 @@
 I created a useful chrome extension that anyone can use to get a quick overview of the course they are viewing on Workday and ease the many Workday headaches!
 
 It provides:
-- 🔷 Average grade information from UBC Grades
+- 🔷 Average grade information on a course from UBC Grades
 - 🔷 Average professor rating information from Rate My Professor
 
 
