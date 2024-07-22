@@ -1,6 +1,6 @@
 # UBC Workday Hero
 
-I created a useful chrome extension that anyone can use to get a quick overview of the course they are viewing on Workday and ease the many Workday headaches!
+I created a useful chrome extension that anyone can use to get a quick overview of the course they are viewing on UBC Workday and ease the many Workday headaches!
 
 ## What does it provide
 - 🔷 Average grade information on a course from UBC Grades
