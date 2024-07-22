@@ -13,9 +13,6 @@ I created a useful chrome extension that anyone can use to get a quick overview 
 - 💪  Backend created with a Python Flask 
 - 🧠  Hosted by containerizing with Docker and deployed on AWS ECR and hosted on AWS ECS
 
-
-This has been sitting in my GitHub for a while and finally finished it up for everyone to use!
-
 ## Download and Use Now!
 ### Link to extension 
 https://chromewebstore.google.com/detail/ubc-workday-hero/godkbcoibkfcggbmgiifhhialcgpgffi
