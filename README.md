@@ -14,5 +14,13 @@ Peace
 ## Feedback and Inquiries
 Please reach out to me on email aqilfaizalali@gmail.com
 
-## Figma Link
-https://www.figma.com/design/NIBITFsw0hIEAIiZ0qOKyI/Workday-Hero?node-id=1669-162202&t=6AFF9ykxhkF08cXo-1
+
+## Download and Use Now
+### Link to Extension
+https://chromewebstore.google.com/detail/ubc-workday-hero/godkbcoibkfcggbmgiifhhialcgpgffi
+### Video Example
+https://github.com/user-attachments/assets/80508379-1883-4301-97b0-77926c581c9c
+
+
+
+
