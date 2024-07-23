@@ -1,21 +1,37 @@
-# start by pulling the python image
-FROM python:3.8-alpine
+FROM python:3.8-slim
 
-# copy the requirements file into the image
-COPY ./requirements.txt /rmp-app/requirements.txt
+# add user (change to whatever you want)
+# prevents running sudo commands
+RUN useradd -r -s /bin/bash aqil
 
-# switch working directory
-WORKDIR /rmp-app
+# set current env
+ENV HOME /app
+WORKDIR /app
+ENV PATH="/app/.local/bin:${PATH}"
 
-# install the dependencies and packages in the requirements file
-RUN pip install -r requirements.txt
+RUN chown -R aqil:aqil /app
+USER aqil
 
-# copy every content from the local file to the image
-COPY . /rmp-app
+# set app config option
+ENV FLASK_ENV=production
 
-EXPOSE 5000
+# set argument vars in docker-run command
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_DEFAULT_REGION 
 
-# configure the container to run in an executed manner
-ENTRYPOINT [ "python" ]
+ENV AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID
+ENV AWS_SECRET_ACCESS_KEY $AWS_SECRET_ACCESS_KEY
+ENV AWS_DEFAULT_REGION $AWS_DEFAULT_REGION
 
-CMD ["rmp-app.py" ]
+# Avoid cache purge by adding requirements first
+ADD ./requirements.txt ./requirements.txt
+
+RUN pip install --no-cache-dir -r ./requirements.txt --user
+
+# Add the rest of the files
+COPY . /app
+WORKDIR /app
+
+# start web server
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:", "--workers=5"]
