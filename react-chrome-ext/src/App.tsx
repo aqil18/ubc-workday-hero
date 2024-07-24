@@ -78,7 +78,7 @@ async function processCourseString(courseString: string) {
 
 async function processProfString(profString : string) {
     try {
-        const response = await axios.post('http/localhost:5000/process-rmp', { input: profString });
+        const response = await axios.post('http://localhost:5000/process-rmp', { input: profString });
         return response.data
     } catch (error) {
       console.error('Error sending data to Flask:', error);
