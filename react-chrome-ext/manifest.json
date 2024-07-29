@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0.0",
+  "version": "1.0.0.1",
   "manifest_version": 3,
   "name": "UBC Workday Hero",
   "description": "A Chrome extension to fetch and display UBC course and professor statistics.",

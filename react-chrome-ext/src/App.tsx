@@ -2,6 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 const UBCGRADES: string  = 'https://ubcgrades.com/api/v3/course-statistics/UBCV/';
+const LOCAL_SERVER: string = 'http://localhost:5000/process-rmp';
+const PROD_SERVER: string = 'https://protected-citadel-29412-7e47f901b550.herokuapp.com/process-rmp'
+
 import axios from 'axios';
 
 
@@ -78,7 +81,8 @@ async function processCourseString(courseString: string) {
 
 async function processProfString(profString : string) {
     try {
-        const response = await axios.post('http://localhost:5000/process-rmp', { input: profString });
+        
+        const response = await axios.post(PROD_SERVER, { input: profString });
         return response.data
     } catch (error) {
       console.error('Error sending data to Flask:', error);
